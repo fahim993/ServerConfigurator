@@ -1,0 +1,91 @@
+﻿@model ServerConfigurator.Model.ConfigModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" action="/Home/UpdateConfig">
+    <div class="section">
+        <div><h2>Default Values</h2></div>
+        <table id="defaultTable">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.DefaultValues)
+                {
+                    <tr>
+                        <td><input type="text" name="defaultKeys" value="@item.Key" /></td>
+                        <td><input type="text" name="defaultValues" value="@item.Value" /></td>
+                        <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="button" onclick="addRow('defaultTable')">Add Row</button>
+    </div>
+
+
+
+    <div class="section">
+        <div><h2>Server Configurations</h2></div>
+        @foreach (var serverConfig in Model.ServerConfigs)
+        {
+            <h3>@serverConfig.Key</h3>
+            <table id="@serverConfig.Key">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in serverConfig.Value)
+                    {
+                        <tr>
+                            <td>
+                                <input type="hidden" name="serverNames" value="@serverConfig.Key" />
+                                <input type="text" name="serverKeys" value="@item.Key" />
+                            </td>
+                            <td><input type="text" name="serverValues" value="@item.Value" /></td>
+                            <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button type="button" onclick="addRow('@serverConfig.Key')">Add Row</button>
+        }
+    </div>
+
+    <input type="submit" value="Save Changes" />
+</form>
+
+<script>
+    function addRow(tableId) {
+        var table = document.getElementById(tableId);
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell3.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
+
+        if (tableId === 'defaultTable') {
+            cell1.innerHTML = '<input type="text" name="defaultKeys" placeholder="New key" />';
+            cell2.innerHTML = '<input type="text" name="defaultValues" placeholder="New value" />';
+        } else {
+            cell1.innerHTML = '<input type="text" name="serverKeys" placeholder="New key" />';
+            cell2.innerHTML = '<input type="text" name="serverValues" placeholder="New value" />';
+            // Add a hidden input field for the server name
+            var hiddenCell = row.insertCell(-1);
+            hiddenCell.innerHTML = '<input type="text" name="serverNames" value="' + tableId + '" hidden />';
+        }
+    }
+
+    function removeRow(button) {
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>

@@ -1,0 +1,47 @@
+;START DEFAULTS
+SERVER_NAME=MRAPPPOOLPORTL01
+URL=http://dummy.DOMAIN.COMPANY.COM/Available.html
+DB=SQL_SERVER
+IP_ADDRESS=10.200.0.3
+DOMAIN=MYDOMAIN
+COOKIE_DOMAIN=dummy.DOMAIN.COMPANY.COM
+;END DEFAULTS
+
+;START System.Collections.Generic.Dictionary`2[System.String,System.String]
+SERVER_NAME{SRVTST0003}=MRAPPPOOLPORTL0003
+IP_ADDRESS{SRVTST0003}=10.200.0.100
+;END System.Collections.Generic.Dictionary`2[System.String,System.String]
+
+;START System.Collections.Generic.Dictionary`2[System.String,System.String]
+SERVER_NAME{SRVTST0006}=MRAPPPOOLPORTL0006
+IP_ADDRESS{SRVTST0006}=10.200.0.600
+DOMAIN{SRVTST0006}=MYDOMAIN_006
+COOKIE_DOMAIN{SRVTST0006}=dummy.DOMAIN.COMPANY006.COM
+;END System.Collections.Generic.Dictionary`2[System.String,System.String]
+
+;START System.Collections.Generic.Dictionary`2[System.String,System.String]
+SERVER_NAME{SRVTST0009}=MRAPPPOOLPORTL0009
+DOMAIN{SRVTST0009}=MYDOMAIN_009
+COOKIE_DOMAIN{SRVTST0009}=dummy.DOMAIN.COMPANY009.COM
+DB{SRVTST0009}=COSMOS_DB
+;END System.Collections.Generic.Dictionary`2[System.String,System.String]
+
+;START System.Collections.Generic.Dictionary`2[System.String,System.String]
+SERVER_NAME{SRVTST0012}=MRAPPPOOLPORTL0012
+IP_ADDRESS{SRVTST0012}=10.200.0.101
+;END System.Collections.Generic.Dictionary`2[System.String,System.String]
+
+;START System.Collections.Generic.Dictionary`2[System.String,System.String]
+SERVER_NAME{SRVTST0016}=MRAPPPOOLPORTL0016
+IP_ADDRESS{SRVTST0016}=10.200.0.616
+DOMAIN{SRVTST0016}=MYDOMAIN_016
+COOKIE_DOMAIN{SRVTST0016}=dummy.DOMAIN.COMPANY016.COM
+;END System.Collections.Generic.Dictionary`2[System.String,System.String]
+
+;START System.Collections.Generic.Dictionary`2[System.String,System.String]
+SERVER_NAME{SRVTST0019}=MRAPPPOOLPORTL0009
+DOMAIN{SRVTST0019}=MYDOMAIN_009
+COOKIE_DOMAIN{SRVTST0019}=dummy.DOMAIN.COMPANY009.COM
+DB{SRVTST0019}=COSMOS_DB
+;END System.Collections.Generic.Dictionary`2[System.String,System.String]
+
